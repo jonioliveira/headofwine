@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -9,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Wine, Plus, Edit, Trash2, Eye, QrCode, BarChart3, Users, DollarSign } from "lucide-react"
+import LanguageSwitcher from "@/components/language-switcher"
 
 // Mock data
 const mockWines = [
@@ -20,6 +22,7 @@ const mockWines = [
 
 export default function RestaurantDashboard() {
   const [wines, setWines] = useState(mockWines)
+  const t = useTranslations('dashboard')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -29,20 +32,21 @@ export default function RestaurantDashboard() {
           <div className="flex items-center gap-4">
             <Wine className="h-8 w-8 text-purple-600" />
             <div>
-              <h1 className="text-2xl font-bold">Bella Vista Restaurant</h1>
-              <p className="text-gray-600">Restaurant Dashboard</p>
+              <h1 className="text-2xl font-bold">{t('title')}</h1>
+              <p className="text-gray-600">{t('subtitle')}</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <Link href="/menu/bella-vista">
               <Button variant="outline" className="gap-2 bg-transparent">
                 <Eye className="h-4 w-4" />
-                View Menu
+                {t('viewMenu')}
               </Button>
             </Link>
             <Button className="gap-2">
               <QrCode className="h-4 w-4" />
-              QR Code
+              {t('qrCode')}
             </Button>
           </div>
         </div>

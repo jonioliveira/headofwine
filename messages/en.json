@@ -1,0 +1,263 @@
+{
+  "common": {
+    "appName": "WineMenu Pro",
+    "login": "Login",
+    "signup": "Sign Up",
+    "getStarted": "Get Started",
+    "viewDemo": "View Demo",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "search": "Search"
+  },
+  "landing": {
+    "hero": {
+      "title": "Digital Wine Menus for Modern Restaurants",
+      "description": "Transform your wine service with interactive digital menus. Manage inventory, track sales, and provide customers with detailed wine information at their fingertips.",
+      "startFreeTrial": "Start Free Trial",
+      "viewDemo": "View Demo"
+    },
+    "features": {
+      "title": "Why Choose WineMenu Pro?",
+      "digital": {
+        "title": "Interactive Digital Menus",
+        "description": "Beautiful, responsive wine menus that work on any device",
+        "feature1": "QR code integration",
+        "feature2": "Rich wine descriptions",
+        "feature3": "High-quality images",
+        "feature4": "Real-time availability"
+      },
+      "analytics": {
+        "title": "Advanced Analytics",
+        "description": "Track sales, popular wines, and customer preferences",
+        "feature1": "Sales reporting",
+        "feature2": "Inventory tracking",
+        "feature3": "Customer insights",
+        "feature4": "Revenue analytics"
+      },
+      "management": {
+        "title": "Easy Management",
+        "description": "Simple admin panel for restaurants and bars",
+        "feature1": "Drag & drop menu builder",
+        "feature2": "Bulk wine imports",
+        "feature3": "Staff management",
+        "feature4": "Multi-location support"
+      }
+    },
+    "pricing": {
+      "title": "Simple, Transparent Pricing",
+      "starter": {
+        "name": "Starter",
+        "description": "Perfect for small restaurants",
+        "price": "$29",
+        "period": "/month",
+        "feature1": "Up to 100 wines",
+        "feature2": "1 location",
+        "feature3": "Basic analytics",
+        "feature4": "Email support",
+        "cta": "Choose Starter"
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "For growing restaurant chains",
+        "price": "$79",
+        "period": "/month",
+        "badge": "Most Popular",
+        "feature1": "Unlimited wines",
+        "feature2": "Up to 5 locations",
+        "feature3": "Advanced analytics",
+        "feature4": "Priority support",
+        "feature5": "Custom branding",
+        "cta": "Choose Professional"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For large restaurant groups",
+        "price": "Custom",
+        "feature1": "Unlimited everything",
+        "feature2": "White-label solution",
+        "feature3": "API access",
+        "feature4": "Dedicated support",
+        "feature5": "Custom integrations",
+        "cta": "Contact Sales"
+      }
+    },
+    "footer": {
+      "description": "The leading digital wine menu platform for restaurants and bars worldwide.",
+      "product": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "demo": "Demo",
+      "company": "Company",
+      "about": "About",
+      "contact": "Contact",
+      "careers": "Careers",
+      "support": "Support",
+      "helpCenter": "Help Center",
+      "documentation": "Documentation",
+      "status": "Status",
+      "copyright": "© 2024 WineMenu Pro. All rights reserved."
+    }
+  },
+  "dashboard": {
+    "title": "Bella Vista Restaurant",
+    "subtitle": "Restaurant Dashboard",
+    "viewMenu": "View Menu",
+    "qrCode": "QR Code",
+    "stats": {
+      "totalWines": "Total Wines",
+      "activeInMenu": "Active in menu",
+      "monthlySales": "Monthly Sales",
+      "salesGrowth": "+15% from last month",
+      "bottlesSold": "Bottles Sold",
+      "thisMonth": "This month",
+      "menuViews": "Menu Views"
+    },
+    "tabs": {
+      "wines": "Wine Management",
+      "analytics": "Analytics",
+      "settings": "Settings"
+    },
+    "wines": {
+      "title": "Wine Collection",
+      "description": "Manage your wine menu and inventory",
+      "addWine": "Add Wine",
+      "stock": "Stock",
+      "sold": "Sold",
+      "thisMonth": "this month"
+    },
+    "analytics": {
+      "topSelling": "Top Selling Wines",
+      "bottlesSold": "bottles sold",
+      "categories": "Wine Categories",
+      "redWines": "Red Wines",
+      "whiteWines": "White Wines",
+      "champagne": "Champagne",
+      "wines": "wines",
+      "wine": "wine"
+    },
+    "settings": {
+      "title": "Restaurant Settings",
+      "description": "Manage your restaurant information and preferences",
+      "restaurantName": "Restaurant Name",
+      "cuisineType": "Cuisine Type",
+      "address": "Address",
+      "phone": "Phone"
+    }
+  },
+  "admin": {
+    "title": "WineMenu Pro Admin",
+    "subtitle": "Platform Administration Dashboard",
+    "stats": {
+      "totalRevenue": "Total Revenue",
+      "revenueGrowth": "+12% from last month",
+      "activeRestaurants": "Active Restaurants",
+      "outOfTotal": "Out of {total} total",
+      "totalWines": "Total Wines",
+      "acrossRestaurants": "Across all restaurants",
+      "growthRate": "Growth Rate",
+      "newSignups": "New signups this month"
+    },
+    "tabs": {
+      "restaurants": "Restaurants",
+      "analytics": "Analytics",
+      "wines": "Top Wines"
+    },
+    "restaurants": {
+      "title": "Restaurant Management",
+      "description": "Overview of all restaurants using the platform",
+      "active": "Active",
+      "inactive": "Inactive",
+      "revenue": "Revenue",
+      "wines": "Wines",
+      "monthlyRevenue": "Monthly Revenue"
+    },
+    "analytics": {
+      "revenueByPlan": "Revenue by Plan",
+      "restaurant": "restaurant",
+      "restaurants": "restaurants",
+      "platformMetrics": "Platform Metrics",
+      "avgWines": "Average wines per restaurant",
+      "avgRevenue": "Average revenue per restaurant",
+      "retention": "Customer retention rate"
+    },
+    "topWines": {
+      "title": "Top Performing Wines",
+      "description": "Best selling wines across all restaurants",
+      "bottlesSold": "bottles sold"
+    }
+  },
+  "menu": {
+    "title": "Bella Vista Restaurant",
+    "subtitle": "Fine Italian Cuisine & Wine",
+    "address": "123 Main Street, Downtown",
+    "phone": "(555) 123-4567",
+    "hours": "Open until 11:00 PM",
+    "search": "Search wines by name or region...",
+    "filters": {
+      "all": "All Wines",
+      "red": "Red Wine",
+      "white": "White Wine",
+      "champagne": "Champagne",
+      "allCountries": "All Countries",
+      "allRegions": "All Regions",
+      "selectType": "Wine Type",
+      "selectCountry": "Country",
+      "selectRegion": "Region"
+    },
+    "outOfStock": "Out of Stock",
+    "abv": "ABV",
+    "grape": "Grape",
+    "addToOrder": "Add to Order",
+    "noWines": {
+      "title": "No wines found",
+      "description": "Try adjusting your search or filter criteria"
+    },
+    "footer": {
+      "poweredBy": "Powered by WineMenu Pro",
+      "description": "Digital wine menus for modern restaurants"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Enter your credentials to access your account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "signIn": "Sign in",
+      "signingIn": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up",
+      "demoAccounts": "Demo Accounts:",
+      "restaurantDemo": "Restaurant: restaurant@demo.com / password",
+      "adminDemo": "Admin: admin@winemenu.com / password"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "subtitle": "Create an account to get started",
+      "restaurantName": "Restaurant/Bar Name",
+      "restaurantPlaceholder": "Enter your business name",
+      "businessType": "Business Type",
+      "businessTypePlaceholder": "Select business type",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "createAccount": "Create account",
+      "creatingAccount": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "signInLink": "Sign in",
+      "businessTypes": {
+        "restaurant": "Restaurant",
+        "bar": "Bar",
+        "wineBar": "Wine Bar",
+        "hotel": "Hotel",
+        "other": "Other"
+      }
+    }
+  }
+}

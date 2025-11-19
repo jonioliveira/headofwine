@@ -1,9 +1,11 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Wine, Building2, DollarSign, TrendingUp } from "lucide-react"
+import LanguageSwitcher from "@/components/language-switcher"
 
 // Mock data for admin dashboard
 const mockRestaurants = [
@@ -22,6 +24,7 @@ const mockTopWines = [
 ]
 
 export default function AdminDashboard() {
+  const t = useTranslations('admin')
   const totalRevenue = mockRestaurants.reduce((sum, r) => sum + r.revenue, 0)
   const activeRestaurants = mockRestaurants.filter((r) => r.active).length
   const totalWines = mockRestaurants.reduce((sum, r) => sum + r.wines, 0)
@@ -31,12 +34,15 @@ export default function AdminDashboard() {
       {/* Header */}
       <header className="bg-white border-b">
         <div className="px-6 py-4">
-          <div className="flex items-center gap-4">
-            <Wine className="h-8 w-8 text-purple-600" />
-            <div>
-              <h1 className="text-2xl font-bold">WineMenu Pro Admin</h1>
-              <p className="text-gray-600">Platform Administration Dashboard</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Wine className="h-8 w-8 text-purple-600" />
+              <div>
+                <h1 className="text-2xl font-bold">{t('title')}</h1>
+                <p className="text-gray-600">{t('subtitle')}</p>
+              </div>
             </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </header>
@@ -46,45 +52,45 @@ export default function AdminDashboard() {
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('stats.totalRevenue')}</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">${totalRevenue.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground">+12% from last month</p>
+              <p className="text-xs text-muted-foreground">{t('stats.revenueGrowth')}</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Restaurants</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('stats.activeRestaurants')}</CardTitle>
               <Building2 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{activeRestaurants}</div>
-              <p className="text-xs text-muted-foreground">Out of {mockRestaurants.length} total</p>
+              <p className="text-xs text-muted-foreground">{t('stats.outOfTotal', { total: mockRestaurants.length })}</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Wines</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('stats.totalWines')}</CardTitle>
               <Wine className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{totalWines}</div>
-              <p className="text-xs text-muted-foreground">Across all restaurants</p>
+              <p className="text-xs text-muted-foreground">{t('stats.acrossRestaurants')}</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Growth Rate</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('stats.growthRate')}</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+23%</div>
-              <p className="text-xs text-muted-foreground">New signups this month</p>
+              <p className="text-xs text-muted-foreground">{t('stats.newSignups')}</p>
             </CardContent>
           </Card>
         </div>
@@ -92,16 +98,16 @@ export default function AdminDashboard() {
         {/* Main Content */}
         <Tabs defaultValue="restaurants" className="space-y-6">
           <TabsList>
-            <TabsTrigger value="restaurants">Restaurants</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="wines">Top Wines</TabsTrigger>
+            <TabsTrigger value="restaurants">{t('tabs.restaurants')}</TabsTrigger>
+            <TabsTrigger value="analytics">{t('tabs.analytics')}</TabsTrigger>
+            <TabsTrigger value="wines">{t('tabs.wines')}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="restaurants">
             <Card>
               <CardHeader>
-                <CardTitle>Restaurant Management</CardTitle>
-                <CardDescription>Overview of all restaurants using the platform</CardDescription>
+                <CardTitle>{t('restaurants.title')}</CardTitle>
+                <CardDescription>{t('restaurants.description')}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -111,18 +117,18 @@ export default function AdminDashboard() {
                         <div className="flex items-center gap-3">
                           <h3 className="font-semibold">{restaurant.name}</h3>
                           <Badge variant={restaurant.active ? "default" : "secondary"}>
-                            {restaurant.active ? "Active" : "Inactive"}
+                            {restaurant.active ? t('restaurants.active') : t('restaurants.inactive')}
                           </Badge>
                           <Badge variant="outline">{restaurant.plan}</Badge>
                         </div>
                         <div className="flex items-center gap-6 mt-2 text-sm text-gray-600">
-                          <span>Revenue: ${restaurant.revenue}/month</span>
-                          <span>Wines: {restaurant.wines}</span>
+                          <span>{t('restaurants.revenue')}: ${restaurant.revenue}/month</span>
+                          <span>{t('restaurants.wines')}: {restaurant.wines}</span>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-lg font-semibold">${restaurant.revenue}</div>
-                        <div className="text-sm text-gray-600">Monthly Revenue</div>
+                        <div className="text-sm text-gray-600">{t('restaurants.monthlyRevenue')}</div>
                       </div>
                     </div>
                   ))}
@@ -135,7 +141,7 @@ export default function AdminDashboard() {
             <div className="grid md:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Revenue by Plan</CardTitle>
+                  <CardTitle>{t('analytics.revenueByPlan')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -143,21 +149,21 @@ export default function AdminDashboard() {
                       <span>Enterprise</span>
                       <div className="text-right">
                         <div className="font-semibold">$8,900</div>
-                        <div className="text-sm text-gray-600">1 restaurant</div>
+                        <div className="text-sm text-gray-600">1 {t('analytics.restaurant')}</div>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <span>Professional</span>
                       <div className="text-right">
                         <div className="font-semibold">$8,300</div>
-                        <div className="text-sm text-gray-600">2 restaurants</div>
+                        <div className="text-sm text-gray-600">2 {t('analytics.restaurants')}</div>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <span>Starter</span>
                       <div className="text-right">
                         <div className="font-semibold">$2,150</div>
-                        <div className="text-sm text-gray-600">2 restaurants</div>
+                        <div className="text-sm text-gray-600">2 {t('analytics.restaurants')}</div>
                       </div>
                     </div>
                   </div>
@@ -166,20 +172,20 @@ export default function AdminDashboard() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Platform Metrics</CardTitle>
+                  <CardTitle>{t('analytics.platformMetrics')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span>Average wines per restaurant</span>
+                      <span>{t('analytics.avgWines')}</span>
                       <span className="font-semibold">{Math.round(totalWines / mockRestaurants.length)}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span>Average revenue per restaurant</span>
+                      <span>{t('analytics.avgRevenue')}</span>
                       <span className="font-semibold">${Math.round(totalRevenue / mockRestaurants.length)}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span>Customer retention rate</span>
+                      <span>{t('analytics.retention')}</span>
                       <span className="font-semibold">94%</span>
                     </div>
                   </div>
@@ -191,8 +197,8 @@ export default function AdminDashboard() {
           <TabsContent value="wines">
             <Card>
               <CardHeader>
-                <CardTitle>Top Performing Wines</CardTitle>
-                <CardDescription>Best selling wines across all restaurants</CardDescription>
+                <CardTitle>{t('topWines.title')}</CardTitle>
+                <CardDescription>{t('topWines.description')}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -207,7 +213,7 @@ export default function AdminDashboard() {
                       </div>
                       <div className="text-right">
                         <div className="font-semibold">${wine.revenue.toLocaleString()}</div>
-                        <div className="text-sm text-gray-600">{wine.sales} bottles sold</div>
+                        <div className="text-sm text-gray-600">{wine.sales} {t('topWines.bottlesSold')}</div>
                       </div>
                     </div>
                   ))}

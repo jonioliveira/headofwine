@@ -1,0 +1,263 @@
+{
+  "common": {
+    "appName": "WineMenu Pro",
+    "login": "Entrar",
+    "signup": "Registar",
+    "getStarted": "Começar",
+    "viewDemo": "Ver Demo",
+    "save": "Guardar Alterações",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "add": "Adicionar",
+    "search": "Pesquisar"
+  },
+  "landing": {
+    "hero": {
+      "title": "Menus Digitais de Vinho para Restaurantes Modernos",
+      "description": "Transforme o seu serviço de vinhos com menus digitais interativos. Faça a gestão de inventário, acompanhe as vendas e forneça aos clientes informações detalhadas sobre vinhos na ponta dos dedos.",
+      "startFreeTrial": "Iniciar Teste Gratuito",
+      "viewDemo": "Ver Demo"
+    },
+    "features": {
+      "title": "Porquê Escolher o WineMenu Pro?",
+      "digital": {
+        "title": "Menus Digitais Interativos",
+        "description": "Menus de vinho bonitos e responsivos que funcionam em qualquer dispositivo",
+        "feature1": "Integração com código QR",
+        "feature2": "Descrições detalhadas de vinhos",
+        "feature3": "Imagens de alta qualidade",
+        "feature4": "Disponibilidade em tempo real"
+      },
+      "analytics": {
+        "title": "Análises Avançadas",
+        "description": "Acompanhe vendas, vinhos populares e preferências dos clientes",
+        "feature1": "Relatórios de vendas",
+        "feature2": "Rastreamento de inventário",
+        "feature3": "Insights de clientes",
+        "feature4": "Análises de receita"
+      },
+      "management": {
+        "title": "Gestão Fácil",
+        "description": "Painel de administração simples para restaurantes e bares",
+        "feature1": "Construtor de menus arrastar e soltar",
+        "feature2": "Importação de vinhos em massa",
+        "feature3": "Gestão de equipa",
+        "feature4": "Suporte multi-localização"
+      }
+    },
+    "pricing": {
+      "title": "Preços Simples e Transparentes",
+      "starter": {
+        "name": "Inicial",
+        "description": "Perfeito para pequenos restaurantes",
+        "price": "29€",
+        "period": "/mês",
+        "feature1": "Até 100 vinhos",
+        "feature2": "1 localização",
+        "feature3": "Análises básicas",
+        "feature4": "Suporte por email",
+        "cta": "Escolher Inicial"
+      },
+      "professional": {
+        "name": "Profissional",
+        "description": "Para cadeias de restaurantes em crescimento",
+        "price": "79€",
+        "period": "/mês",
+        "badge": "Mais Popular",
+        "feature1": "Vinhos ilimitados",
+        "feature2": "Até 5 localizações",
+        "feature3": "Análises avançadas",
+        "feature4": "Suporte prioritário",
+        "feature5": "Marca personalizada",
+        "cta": "Escolher Profissional"
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "description": "Para grandes grupos de restaurantes",
+        "price": "Personalizado",
+        "feature1": "Tudo ilimitado",
+        "feature2": "Solução white-label",
+        "feature3": "Acesso API",
+        "feature4": "Suporte dedicado",
+        "feature5": "Integrações personalizadas",
+        "cta": "Contactar Vendas"
+      }
+    },
+    "footer": {
+      "description": "A plataforma líder de menus digitais de vinho para restaurantes e bares em todo o mundo.",
+      "product": "Produto",
+      "features": "Funcionalidades",
+      "pricing": "Preços",
+      "demo": "Demo",
+      "company": "Empresa",
+      "about": "Sobre",
+      "contact": "Contacto",
+      "careers": "Carreiras",
+      "support": "Suporte",
+      "helpCenter": "Centro de Ajuda",
+      "documentation": "Documentação",
+      "status": "Estado",
+      "copyright": "© 2024 WineMenu Pro. Todos os direitos reservados."
+    }
+  },
+  "dashboard": {
+    "title": "Restaurante Bella Vista",
+    "subtitle": "Painel do Restaurante",
+    "viewMenu": "Ver Menu",
+    "qrCode": "Código QR",
+    "stats": {
+      "totalWines": "Total de Vinhos",
+      "activeInMenu": "Ativos no menu",
+      "monthlySales": "Vendas Mensais",
+      "salesGrowth": "+15% desde o mês passado",
+      "bottlesSold": "Garrafas Vendidas",
+      "thisMonth": "Este mês",
+      "menuViews": "Visualizações do Menu"
+    },
+    "tabs": {
+      "wines": "Gestão de Vinhos",
+      "analytics": "Análises",
+      "settings": "Definições"
+    },
+    "wines": {
+      "title": "Coleção de Vinhos",
+      "description": "Gerir o seu menu de vinhos e inventário",
+      "addWine": "Adicionar Vinho",
+      "stock": "Stock",
+      "sold": "Vendido",
+      "thisMonth": "este mês"
+    },
+    "analytics": {
+      "topSelling": "Vinhos Mais Vendidos",
+      "bottlesSold": "garrafas vendidas",
+      "categories": "Categorias de Vinho",
+      "redWines": "Vinhos Tintos",
+      "whiteWines": "Vinhos Brancos",
+      "champagne": "Champanhe",
+      "wines": "vinhos",
+      "wine": "vinho"
+    },
+    "settings": {
+      "title": "Definições do Restaurante",
+      "description": "Gerir as informações e preferências do seu restaurante",
+      "restaurantName": "Nome do Restaurante",
+      "cuisineType": "Tipo de Cozinha",
+      "address": "Morada",
+      "phone": "Telefone"
+    }
+  },
+  "admin": {
+    "title": "Admin WineMenu Pro",
+    "subtitle": "Painel de Administração da Plataforma",
+    "stats": {
+      "totalRevenue": "Receita Total",
+      "revenueGrowth": "+12% desde o mês passado",
+      "activeRestaurants": "Restaurantes Ativos",
+      "outOfTotal": "De {total} no total",
+      "totalWines": "Total de Vinhos",
+      "acrossRestaurants": "Em todos os restaurantes",
+      "growthRate": "Taxa de Crescimento",
+      "newSignups": "Novos registos este mês"
+    },
+    "tabs": {
+      "restaurants": "Restaurantes",
+      "analytics": "Análises",
+      "wines": "Top Vinhos"
+    },
+    "restaurants": {
+      "title": "Gestão de Restaurantes",
+      "description": "Visão geral de todos os restaurantes que usam a plataforma",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "revenue": "Receita",
+      "wines": "Vinhos",
+      "monthlyRevenue": "Receita Mensal"
+    },
+    "analytics": {
+      "revenueByPlan": "Receita por Plano",
+      "restaurant": "restaurante",
+      "restaurants": "restaurantes",
+      "platformMetrics": "Métricas da Plataforma",
+      "avgWines": "Média de vinhos por restaurante",
+      "avgRevenue": "Receita média por restaurante",
+      "retention": "Taxa de retenção de clientes"
+    },
+    "topWines": {
+      "title": "Vinhos com Melhor Desempenho",
+      "description": "Vinhos mais vendidos em todos os restaurantes",
+      "bottlesSold": "garrafas vendidas"
+    }
+  },
+  "menu": {
+    "title": "Restaurante Bella Vista",
+    "subtitle": "Cozinha Italiana Requintada e Vinhos",
+    "address": "Rua Principal 123, Centro",
+    "phone": "(555) 123-4567",
+    "hours": "Aberto até às 23:00",
+    "search": "Pesquisar vinhos por nome ou região...",
+    "filters": {
+      "all": "Todos os Vinhos",
+      "red": "Vinho Tinto",
+      "white": "Vinho Branco",
+      "champagne": "Champanhe",
+      "allCountries": "Todos os Países",
+      "allRegions": "Todas as Regiões",
+      "selectType": "Tipo de Vinho",
+      "selectCountry": "País",
+      "selectRegion": "Região"
+    },
+    "outOfStock": "Sem Stock",
+    "abv": "TAV",
+    "grape": "Uva",
+    "addToOrder": "Adicionar ao Pedido",
+    "noWines": {
+      "title": "Nenhum vinho encontrado",
+      "description": "Tente ajustar os seus critérios de pesquisa ou filtro"
+    },
+    "footer": {
+      "poweredBy": "Powered by WineMenu Pro",
+      "description": "Menus digitais de vinho para restaurantes modernos"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Entrar",
+      "subtitle": "Introduza as suas credenciais para aceder à sua conta",
+      "email": "Email",
+      "emailPlaceholder": "Introduza o seu email",
+      "password": "Palavra-passe",
+      "passwordPlaceholder": "Introduza a sua palavra-passe",
+      "signIn": "Entrar",
+      "signingIn": "A entrar...",
+      "noAccount": "Não tem uma conta?",
+      "signUpLink": "Registar",
+      "demoAccounts": "Contas de Demonstração:",
+      "restaurantDemo": "Restaurante: restaurant@demo.com / password",
+      "adminDemo": "Admin: admin@winemenu.com / password"
+    },
+    "signup": {
+      "title": "Registar",
+      "subtitle": "Criar uma conta para começar",
+      "restaurantName": "Nome do Restaurante/Bar",
+      "restaurantPlaceholder": "Introduza o nome do seu negócio",
+      "businessType": "Tipo de Negócio",
+      "businessTypePlaceholder": "Selecione o tipo de negócio",
+      "email": "Email",
+      "emailPlaceholder": "Introduza o seu email",
+      "password": "Palavra-passe",
+      "passwordPlaceholder": "Crie uma palavra-passe",
+      "createAccount": "Criar conta",
+      "creatingAccount": "A criar conta...",
+      "haveAccount": "Já tem uma conta?",
+      "signInLink": "Entrar",
+      "businessTypes": {
+        "restaurant": "Restaurante",
+        "bar": "Bar",
+        "wineBar": "Bar de Vinhos",
+        "hotel": "Hotel",
+        "other": "Outro"
+      }
+    }
+  }
+}
