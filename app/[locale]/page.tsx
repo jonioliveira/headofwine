@@ -237,6 +237,17 @@ export default function HomePage() {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>{t('landing.footer.copyright')}</p>
+            <p className="mt-2">
+              {t('landing.footer.developedBy')}{' '}
+              <a
+                href="https://binaryflamingo.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                {t('landing.footer.binaryFlamingo')}
+              </a>
+            </p>
           </div>
         </div>
       </footer>

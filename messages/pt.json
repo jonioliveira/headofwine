@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "WineMenu Pro",
+    "appName": "Headofwine",
     "login": "Entrar",
     "signup": "Registar",
     "getStarted": "Começar",
@@ -20,7 +20,7 @@
       "viewDemo": "Ver Demo"
     },
     "features": {
-      "title": "Porquê Escolher o WineMenu Pro?",
+      "title": "Porquê Escolher o Headofwine?",
       "digital": {
         "title": "Menus Digitais Interativos",
         "description": "Menus de vinho bonitos e responsivos que funcionam em qualquer dispositivo",
@@ -98,7 +98,9 @@
       "helpCenter": "Centro de Ajuda",
       "documentation": "Documentação",
       "status": "Estado",
-      "copyright": "© 2024 WineMenu Pro. Todos os direitos reservados."
+      "copyright": "© 2024 Headofwine. Todos os direitos reservados.",
+      "developedBy": "Desenvolvido por",
+      "binaryFlamingo": "Binary Flamingo"
     }
   },
   "dashboard": {
@@ -148,7 +150,7 @@
     }
   },
   "admin": {
-    "title": "Admin WineMenu Pro",
+    "title": "Admin Headofwine",
     "subtitle": "Painel de Administração da Plataforma",
     "stats": {
       "totalRevenue": "Receita Total",
@@ -216,7 +218,7 @@
       "description": "Tente ajustar os seus critérios de pesquisa ou filtro"
     },
     "footer": {
-      "poweredBy": "Powered by WineMenu Pro",
+      "poweredBy": "Powered by Headofwine",
       "description": "Menus digitais de vinho para restaurantes modernos"
     }
   },
@@ -234,7 +236,7 @@
       "signUpLink": "Registar",
       "demoAccounts": "Contas de Demonstração:",
       "restaurantDemo": "Restaurante: restaurant@demo.com / password",
-      "adminDemo": "Admin: admin@winemenu.com / password"
+      "adminDemo": "Admin: admin@headofwine.com / password"
     },
     "signup": {
       "title": "Registar",

@@ -4,8 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'WineMenu Pro',
-  description: 'Digital wine menus for modern restaurants',
+  title: 'Headofwine',
+  description: 'Digital wine menus for modern restaurants - Developed by Binary Flamingo',
   generator: 'v0.dev',
 }
 

@@ -29,7 +29,7 @@ export default function LoginPage() {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     // Mock authentication logic
-    if (email === "admin@winemenu.com") {
+    if (email === "admin@headofwine.com") {
       router.push("/admin")
     } else {
       router.push("/dashboard")

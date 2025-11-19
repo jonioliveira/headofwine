@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WineMenu Pro is a Next.js 15 application for digital wine menu management aimed at restaurants and bars. The project is synced with v0.dev and automatically deploys to Vercel.
+Headofwine is a Next.js 15 application for digital wine menu management aimed at restaurants and bars. The project is synced with v0.dev and automatically deploys to Vercel. Developed by Binary Flamingo (https://binaryflamingo.com).
 
 - **Framework**: Next.js 15 with App Router
 - **Language**: TypeScript (strict mode enabled)
@@ -54,6 +54,7 @@ pnpm lint
 
 - `lib/` - Utility functions
   - `utils.ts` - cn() utility for Tailwind class merging
+  - `prisma.ts` - Prisma client singleton instance
 
 - `hooks/` - Custom React hooks
   - `use-mobile.tsx` - Mobile viewport detection
@@ -63,9 +64,19 @@ pnpm lint
   - `en.json` - English translations
   - `pt.json` - Portuguese translations
 
-- `scripts/` - Database scripts
-  - `create-database.sql` - PostgreSQL schema definition
-  - `seed-data.sql` - Sample data for development
+- `scripts/` - Database scripts (legacy SQL files, now using Prisma)
+  - `create-database.sql` - PostgreSQL schema definition (reference only)
+  - `seed-data.sql` - Sample data for development (reference only)
+
+- `prisma/` - Prisma ORM configuration
+  - `schema.prisma` - Prisma schema defining all models
+  - `migrations/` - Database migration history
+
+- `app/api/` - API routes for backend functionality
+  - `restaurants/` - Restaurant CRUD operations
+  - `wines/` - Wine management and filtering
+  - `sales/` - Sales tracking
+  - `analytics/` - Dashboard and admin analytics
 
 - `i18n.ts` - Internationalization configuration
 - `middleware.ts` - Next.js middleware for locale routing
@@ -187,12 +198,60 @@ All routes are prefixed with locale (`/en` or `/pt`):
 
 Language switching is available on all pages via the LanguageSwitcher component.
 
+### Database & Backend
+
+This project uses **Prisma** as the ORM with PostgreSQL:
+
+**Setup:**
+1. Copy `.env.example` to `.env` and configure your `DATABASE_URL`
+2. Run `npx prisma migrate dev` to create database tables
+3. (Optional) Seed data using `npx prisma db seed` if configured
+
+**Prisma Commands:**
+```bash
+# Generate Prisma Client
+npx prisma generate
+
+# Create and apply migrations
+npx prisma migrate dev --name migration_name
+
+# Open Prisma Studio (database GUI)
+npx prisma studio
+
+# Push schema changes without migrations (dev only)
+npx prisma db push
+
+# Reset database and apply all migrations
+npx prisma migrate reset
+```
+
+**Available API Routes:**
+- `GET /api/restaurants` - List all restaurants
+- `POST /api/restaurants` - Create restaurant
+- `GET /api/restaurants/[id]` - Get restaurant details
+- `PUT /api/restaurants/[id]` - Update restaurant
+- `DELETE /api/restaurants/[id]` - Delete restaurant
+
+- `GET /api/wines?restaurantId=X&type=X&search=X` - List/filter wines
+- `POST /api/wines` - Create wine
+- `GET /api/wines/[id]` - Get wine details
+- `PUT /api/wines/[id]` - Update wine
+- `DELETE /api/wines/[id]` - Delete wine
+
+- `GET /api/sales?restaurantId=X` - List sales
+- `POST /api/sales` - Create sale (auto-updates stock)
+
+- `GET /api/analytics/dashboard?restaurantId=X` - Restaurant analytics
+- `GET /api/analytics/admin` - Platform-wide analytics
+
 ### Current State
 
-- All pages use mock data (no backend/database integration yet)
+- **Database**: Prisma + PostgreSQL fully integrated
+- **API Routes**: Complete CRUD operations for restaurants, wines, sales, and analytics
+- **Frontend**: Dashboard and admin pages still use mock data (need to be updated to use API)
+- **Authentication**: UI only, no backend authentication yet
+- **Demo/Landing Pages**: Continue using mock data (no API integration needed)
 - Client components only (marked with "use client")
-- No authentication implementation
-- No API routes defined
 - Images are unoptimized (see next.config.mjs)
 
 ## Key Patterns
@@ -223,10 +282,54 @@ This repository syncs automatically with v0.dev:
 
 ## Next Steps for Development
 
-When implementing backend functionality:
-1. Use the database schema in `scripts/create-database.sql` as reference
-2. Create API routes in `app/api/`
-3. Replace mock data with actual database queries
-4. Implement authentication using NextAuth.js or similar
-5. Add server-side data fetching with Server Components
-6. Connect to PostgreSQL database (schema already defined)
+Backend is now set up with Prisma! To complete the integration:
+
+1. **Update Frontend Pages**: Replace mock data in dashboard and admin pages with API calls
+   - Use `fetch('/api/...')` in client components or
+   - Convert to Server Components and use Prisma directly
+
+2. **Add Authentication**:
+   - Install NextAuth.js: `pnpm add next-auth`
+   - Create authentication API routes
+   - Protect API routes and pages with middleware
+   - Hash passwords with bcrypt
+
+3. **Database Migration**:
+   - Run `npx prisma migrate dev` to create your database
+   - Optionally create a seed script in `prisma/seed.ts` to populate initial data
+
+4. **Production Deployment**:
+   - Set `DATABASE_URL` in your production environment (Vercel, Railway, etc.)
+   - Run `npx prisma migrate deploy` in production
+   - Ensure `@prisma/client` and `prisma` are in dependencies (not devDependencies)
+
+5. **Example: Converting a Page to Use API**:
+   ```typescript
+   // Client Component approach
+   "use client"
+   import { useEffect, useState } from 'react'
+
+   export default function DashboardPage() {
+     const [data, setData] = useState(null)
+
+     useEffect(() => {
+       fetch('/api/analytics/dashboard?restaurantId=1')
+         .then(res => res.json())
+         .then(setData)
+     }, [])
+
+     if (!data) return <div>Loading...</div>
+     // Use data...
+   }
+
+   // Server Component approach (recommended)
+   import { prisma } from '@/lib/prisma'
+
+   export default async function DashboardPage() {
+     const data = await prisma.restaurant.findUnique({
+       where: { id: 1 },
+       include: { wines: true }
+     })
+     // Use data...
+   }
+   ```

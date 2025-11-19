@@ -1,4 +1,4 @@
--- Create database schema for WineMenu Pro
+-- Create database schema for Headofwine
 
 -- Restaurants table
 CREATE TABLE restaurants (

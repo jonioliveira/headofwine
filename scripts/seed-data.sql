@@ -1,4 +1,4 @@
--- Seed data for WineMenu Pro
+-- Seed data for Headofwine
 
 -- Insert sample restaurants
 INSERT INTO restaurants (name, email, password_hash, business_type, address, phone, plan, is_active) VALUES
@@ -41,4 +41,4 @@ INSERT INTO menu_views (restaurant_id, view_date) VALUES
 
 -- Insert admin user
 INSERT INTO admin_users (email, password_hash, role) VALUES
-('admin@winemenu.com', '$2b$10$example_hash', 'admin');
+('admin@headofwine.com', '$2b$10$example_hash', 'admin');

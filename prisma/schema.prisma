@@ -1,0 +1,96 @@
+// This is your Prisma schema file for Headofwine
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Restaurant {
+  id           Int        @id @default(autoincrement())
+  name         String     @db.VarChar(255)
+  email        String     @unique @db.VarChar(255)
+  passwordHash String     @map("password_hash") @db.VarChar(255)
+  businessType String     @map("business_type") @db.VarChar(50)
+  address      String?    @db.Text
+  phone        String?    @db.VarChar(20)
+  plan         String?    @default("starter") @db.VarChar(20)
+  isActive     Boolean    @default(true) @map("is_active")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @default(now()) @updatedAt @map("updated_at")
+
+  wines        Wine[]
+  sales        Sale[]
+  menuViews    MenuView[]
+
+  @@map("restaurants")
+}
+
+model Wine {
+  id             Int      @id @default(autoincrement())
+  restaurantId   Int      @map("restaurant_id")
+  name           String   @db.VarChar(255)
+  type           String   @db.VarChar(50)
+  region         String?  @db.VarChar(255)
+  vintage        Int?
+  grapeVariety   String?  @map("grape_variety") @db.VarChar(255)
+  price          Decimal  @db.Decimal(10, 2)
+  description    String?  @db.Text
+  alcoholContent Decimal? @map("alcohol_content") @db.Decimal(4, 2)
+  stockQuantity  Int      @default(0) @map("stock_quantity")
+  isAvailable    Boolean  @default(true) @map("is_available")
+  imageUrl       String?  @map("image_url") @db.VarChar(500)
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @default(now()) @updatedAt @map("updated_at")
+
+  restaurant     Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  sales          Sale[]
+
+  @@index([restaurantId])
+  @@map("wines")
+}
+
+model Sale {
+  id           Int      @id @default(autoincrement())
+  restaurantId Int      @map("restaurant_id")
+  wineId       Int      @map("wine_id")
+  quantity     Int
+  unitPrice    Decimal  @map("unit_price") @db.Decimal(10, 2)
+  totalAmount  Decimal  @map("total_amount") @db.Decimal(10, 2)
+  saleDate     DateTime @default(now()) @map("sale_date")
+
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  wine         Wine       @relation(fields: [wineId], references: [id], onDelete: Cascade)
+
+  @@index([restaurantId])
+  @@index([wineId])
+  @@index([saleDate])
+  @@map("sales")
+}
+
+model MenuView {
+  id           Int      @id @default(autoincrement())
+  restaurantId Int      @map("restaurant_id")
+  viewDate     DateTime @default(now()) @map("view_date")
+  userAgent    String?  @map("user_agent") @db.Text
+  ipAddress    String?  @map("ip_address") @db.Inet
+
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@index([restaurantId])
+  @@index([viewDate])
+  @@map("menu_views")
+}
+
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique @db.VarChar(255)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  role         String   @default("admin") @db.VarChar(20)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("admin_users")
+}
