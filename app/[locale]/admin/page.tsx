@@ -5,6 +5,9 @@ import LanguageSwitcher from "@/components/language-switcher"
 import { AdminTabs } from "./admin-tabs"
 import { prisma } from "@/lib/prisma"
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function AdminDashboard() {
   const t = await getTranslations('admin')
   const tStats = await getTranslations('admin.stats')

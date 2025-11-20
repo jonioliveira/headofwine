@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
+export const dynamic = 'force-dynamic'
+
 // GET /api/analytics/admin - Get admin platform analytics
 export async function GET() {
   try {
@@ -82,7 +84,7 @@ export async function GET() {
           revenue: item._sum.totalAmount
         }
       })
-    })
+    )
 
     // Top selling wines across all restaurants
     const topWines = await prisma.sale.groupBy({
@@ -115,7 +117,7 @@ export async function GET() {
           soldQuantity: item._sum.quantity
         }
       })
-    })
+    )
 
     return NextResponse.json({
       stats: {

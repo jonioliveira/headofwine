@@ -7,6 +7,9 @@ import LanguageSwitcher from "@/components/language-switcher"
 import { DashboardTabs } from "./dashboard-tabs"
 import { prisma } from "@/lib/prisma"
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 // For demo purposes, we'll use restaurant ID 1
 // In production, this would come from the authenticated user's session
 const RESTAURANT_ID = 1
