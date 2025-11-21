@@ -18,6 +18,15 @@ Headofwine is a Next.js 15 application for digital wine menu management aimed at
 # Install dependencies
 pnpm install
 
+# Start local database (Podman Compose)
+podman-compose up -d
+
+# Run database migrations
+npx prisma migrate dev
+
+# Seed database with test data
+npx prisma db seed
+
 # Start development server
 pnpm dev
 
@@ -29,7 +38,30 @@ pnpm start
 
 # Run linter
 pnpm lint
+
+# Open Prisma Studio (database GUI)
+npx prisma studio
 ```
+
+## Database Setup
+
+**Local Development**: PostgreSQL via Podman Compose
+```bash
+podman-compose up -d              # Start PostgreSQL
+npx prisma migrate dev --name init  # Create database schema
+npx prisma db seed                # Add test data
+```
+
+**Production**: Neon (Serverless PostgreSQL)
+- Uses `DATABASE_URL` environment variable
+- For Neon: Copy value from `POSTGRES_URL_NON_POOLING` (non-pooled connection)
+- Migrations run automatically during Vercel deployment via `vercel-build` script
+- See `DEPLOYMENT.md` for setup instructions and `TROUBLESHOOTING.md` for common issues
+
+**Environment Variables:**
+- Local: `DATABASE_URL` in `.env` (points to localhost:5432)
+- Production: `DATABASE_URL` in Vercel (set to Neon non-pooled connection string)
+- Schema configuration: `prisma/schema.prisma` uses `env("DATABASE_URL")`
 
 ## Architecture
 
@@ -203,9 +235,10 @@ Language switching is available on all pages via the LanguageSwitcher component.
 This project uses **Prisma** as the ORM with PostgreSQL:
 
 **Setup:**
-1. Copy `.env.example` to `.env` and configure your `DATABASE_URL`
-2. Run `npx prisma migrate dev` to create database tables
-3. (Optional) Seed data using `npx prisma db seed` if configured
+1. Copy `.env.local.example` to `.env` and configure `DATABASE_URL`
+2. Start PostgreSQL: `podman-compose up -d`
+3. Run `npx prisma migrate dev` to create database tables
+4. (Optional) Seed data using `npx prisma db seed`
 
 **Prisma Commands:**
 ```bash
@@ -299,9 +332,11 @@ Backend is now set up with Prisma! To complete the integration:
    - Optionally create a seed script in `prisma/seed.ts` to populate initial data
 
 4. **Production Deployment**:
-   - Set `DATABASE_URL` in your production environment (Vercel, Railway, etc.)
-   - Run `npx prisma migrate deploy` in production
-   - Ensure `@prisma/client` and `prisma` are in dependencies (not devDependencies)
+   - Set `DATABASE_URL` in Vercel environment variables
+   - **For Neon**: Copy value from `POSTGRES_URL_NON_POOLING` (provided by Neon integration)
+   - **For Other Providers**: Use your database connection string
+   - Migrations run automatically via `vercel-build` script
+   - See `DEPLOYMENT.md` for detailed instructions
 
 5. **Example: Converting a Page to Use API**:
    ```typescript
